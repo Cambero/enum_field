@@ -17,14 +17,14 @@ class EnumFieldTest < Test::Unit::TestCase
       MockedModel.expects(:validates_inclusion_of).with(:gender, :in => @possible_values, :message => "invalid gender")
       MockedModel.send(:enum_field, :gender, @possible_values)
     end
-  
+
     should "create constant with possible values named as pluralized field" do
       assert_equal @possible_values, MockedModel::GENDERS
     end
-    
+
     should "create query methods for each enum type" do
       model = MockedModel.new
-      
+
       model.stubs(:gender).returns("male")
       assert model.male?
       assert !model.female?
@@ -32,7 +32,7 @@ class EnumFieldTest < Test::Unit::TestCase
       assert !model.male?
       assert model.female?
     end
-    
+
     should "extend active record base with method" do
       assert_respond_to ActiveRecord::Base, :enum_field
     end
