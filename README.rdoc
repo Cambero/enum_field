@@ -4,7 +4,7 @@ Macro to emulate a MySQL enum_field type thing.
 
 == Usage
 
-This plugin encapsulates a validates_inclusion_of and automatically gives you a 
+This plugin encapsulates a validates_inclusion_of and automatically gives you a
 few more goodies automatically. That's it!
 
     class Computer < ActiveRecord:Base
